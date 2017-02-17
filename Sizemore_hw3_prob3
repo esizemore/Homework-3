@@ -1,0 +1,63 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 14 13:04:30 2017
+
+@author: elizabethsizemore
+"""
+
+from numpy import exp,linspace
+from pylab import plot, show, xlabel,ylabel
+
+ro=6.022E28 #m^-3
+D=428 #K
+V=0.001 #m^3
+k=1.38E-23 #J/K or 8.617385E-5 eV/K
+
+
+def f(x):
+    return (x**4 * exp(x)) * ((1/(exp(x)-1)**2))
+
+
+
+Temp= []
+Tempx=linspace(5,500,495,endpoint=True)
+for T in range (5,500):
+    
+    N= 1000
+    a=0.0
+    b=D/T
+    h=(b-a)/N
+
+    s=0.5*f(b)
+    for j in range(1,N):
+        s += f(a+j*h)
+ 
+        
+    C_v=9 * V * ro * k * ((T/D)**3)* s * h
+
+    Temp.append(C_v)
+    
+        
+
+print ('the heat capacity is:',C_v, 'J/K')
+print (len(Temp))
+print (len(Tempx))
+        
+
+plot(Tempx,Temp)
+xlabel('Temperature in K')
+ylabel('Heat_Capacity in J/K')
+show()
+
+
+
+#A
+#>>> runfile('/Users/elizabethsizemore/Documents/Computational_
+#Physics/Sizemore_hw3_prob3', wdir='/Users/elizabethsizemore/Documents/
+#Computational_Physics')
+#the heat capacity is: 1152.72158282 J/K
+#>>> 
+
+
+

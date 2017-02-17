@@ -1,0 +1,105 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 14 12:43:44 2017
+
+@author: elizabethsizemore
+"""
+
+#A
+import math
+
+a=float(input('Enter value for a (of ax^2+bx+c=0):'))
+b=float(input('Enter value for b (of ax^2+bx+c=0):'))
+c=float(input('Enter value for c (of ax^2+bx+c=0):'))
+
+x= ((-1*b) + math.sqrt((b*b)-(4*a*c)))/(2*a)
+x2= ((-1*b) - math.sqrt((b*b)-(4*a*c)))/(2*a)
+
+print('x=',x)
+print('or',x2)
+print()
+
+
+
+#>>> runfile('/Users/elizabethsizemore/Documents/Computational_Physics/Sizemore_hw3_prob2', wdir='/Users/elizabethsizemore/Documents/Computational_Physics')
+#Enter value for a (of ax^2+bx+c=0):0.001
+#Enter value for b (of ax^2+bx+c=0):1000
+#Enter value for c (of ax^2+bx+c=0):0.001
+#x= -9.999894245993346e-07
+#or -999999.999999
+#>>> 
+
+
+
+
+#B
+print ('Another way to solve the quadratic equation results in:')
+x3=((2*c)/(((-1*b) - math.sqrt((b*b)-(4*a*c)))))
+x4=((2*c)/(((-1*b) + math.sqrt((b*b)-(4*a*c)))))
+print ('x=',x3)
+print('or',x4)
+print()
+
+
+
+
+#>>> runfile('/Users/elizabethsizemore/Documents/Computational_Physics/Sizemore_hw3_prob2', wdir='/Users/elizabethsizemore/Documents/Computational_Physics')
+#Enter value for a (of ax^2+bx+c=0):0.001
+#Enter value for b (of ax^2+bx+c=0):1000
+#Enter value for c (of ax^2+bx+c=0):0.001
+#x= -9.999894245993346e-07
+#or -999999.999999
+#Another way to solve the quadratic equation results in:
+#x= -1.000000000001e-06
+#or -1000010.5755125057
+#>>> 
+
+
+#What do you see? How do you explain it?
+#I see that the solutions to the quadratic equations for both parts a and 
+#b are similar. It is likely just the differences in computation where
+#we see this slight error between the two solutions. 
+
+#C**
+d=math.sqrt(b*b - 4*a*c)
+
+if d<0:
+    print ('No real solutions')
+elif d==0:
+    x5=((-1*b) + math.sqrt((b*b)-(4*a*c)))/(2*a)
+    print ('This equation has one solution:',x5)
+else:
+    x6=((-1*b) + math.sqrt((b*b)-(4*a*c)))/(2*a)
+    x7=((-1*b) - math.sqrt((b*b)-(4*a*c)))/(2*a)
+    print ('The two solutions are', x6, 'and',x7)
+
+
+
+
+#The two solutions are -9.999894245993346e-07 and -999999.999999
+#>>> 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

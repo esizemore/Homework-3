@@ -1,0 +1,22 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 14 12:26:25 2017
+
+@author: elizabethsizemore
+"""
+
+from numpy import loadtxt
+from pylab import imshow,show,xlabel,ylabel,spectral,xlim,ylim
+
+data = loadtxt ("stm.txt",float)#loads file
+
+imshow (data) #plots data from file
+
+xlabel('x-axis')#x-axis
+ylabel('y-axis')#y-axis
+spectral()
+xlim(75,650)
+ylim(0,650)
+
+show()#shows plot

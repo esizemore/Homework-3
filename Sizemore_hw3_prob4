@@ -1,0 +1,57 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Tue Feb 14 13:41:33 2017
+
+@author: elizabethsizemore
+"""
+
+from numpy import exp,linspace
+from pylab import plot, show, xlabel,ylabel
+
+
+def f(x):
+    return (exp(x**2))
+    
+
+Y=[]
+X=linspace(0,3,31,endpoint=True)
+
+def frange(A,B,jump):
+    while A<B:
+        yield A
+        A += jump
+        
+    
+for x in frange(0.0,3.1,0.1):
+    a=0.0
+    b=x
+    N=100
+    h=(b-a)/N
+    
+    s=0.5*f(a) +0.5*f(b)
+    for j in range(1,N):
+        s += f(a+j*h)
+    E_x= s*h
+    
+    Y.append(E_x)
+    
+    
+print (Y)
+
+        
+
+plot(X,Y)
+xlabel('x')
+ylabel('E_x')
+show()
+
+
+
+
+
+
+#>>> runfile('/Users/elizabethsizemore/Documents/Computational_Physics/Sizemore_hw3_prob4', wdir='/Users/elizabethsizemore/Documents/Computational_Physics')
+#[0.0, 0.10033435255309069, 0.20269911258925788, 0.30924879200506311, 0.42239884073594808, 0.54498977922877134, 0.68049722472390639, 0.83331338485403295, 1.009136896433664, 1.2155258263963971, 1.4626970498492717, 1.7647004151917296, 2.1411686769703038, 2.6199619545622244, 3.2412188480282671, 4.0636477137486375, 5.1744324341086614, 6.7050489386141416, 8.8568810198373633, 11.943311062281909, 16.459906451441707, 23.203218781339967, 33.474943841219712, 49.438227681357134, 74.749301668708696, 115.69508469414257, 183.27519129482235, 297.07472828341855, 492.58740729754419, 835.29448747080141, 1448.1892158659402]
+#>>> 
+
